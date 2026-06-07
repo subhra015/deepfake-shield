@@ -1,0 +1,9 @@
+defaults:
+  - base
+
+model:
+  backbone: convnext_tiny
+  num_classes: 2
+  dropout: 0.3
+  use_attention: true
+  pretrained: true

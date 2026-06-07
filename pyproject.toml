@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepfake-shield"
+version = "1.0.0"
+description = "Deep learning pipeline for deepfake image detection"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Deepfake Shield Team" }]
+dependencies = [
+    "torch",
+    "torchvision",
+    "timm",
+    "albumentations",
+    "opencv-python",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "tqdm",
+    "pyyaml",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "onnxruntime",
+    "facenet-pytorch",
+    "python-multipart",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "httpx",
+    "black",
+    "isort",
+    "mypy",
+    "pre-commit",
+    "types-PyYAML",
+]
+train = ["wandb"]
+app = ["streamlit", "pillow"]
+all = ["deepfake-shield[dev,train,app]"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = '\.pyi?$'
+extend-exclude = '/(\.venv|venv|notebooks)/'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip = [".venv", "venv", "notebooks"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+packages = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]

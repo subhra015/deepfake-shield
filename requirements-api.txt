@@ -1,0 +1,12 @@
+torch
+torchvision
+timm
+albumentations
+opencv-python
+numpy
+scikit-learn
+fastapi
+uvicorn[standard]
+pydantic
+facenet-pytorch
+python-multipart
