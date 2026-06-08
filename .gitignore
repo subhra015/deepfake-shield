@@ -1,57 +1,33 @@
-venv/
-.venv/
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Data and artifacts
-data/raw/*
-data/processed/*
-!data/raw/.gitignore
-!data/processed/.gitignore
-models/*
-!models/.gitignore
-results/
-wandb/
-*.pth
-*.onnx
-
-# Environment
+venv/
 .env
-.env.*
+*.egg-info/
+.pytest_cache/
+
+# Model weights
+models/*.pth
+models/*.pt
+models/*.onnx
+models/*.pkl
+
+# Data
+data/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.jpg
+*.jpeg
+*.png
 
 # IDE
-.idea/
 .vscode/
-*.swp
-*.swo
-
-# Testing
-.pytest_cache/
-.mypy_cache/
-.coverage
-htmlcov/
-.ruff_cache/
-
-# Jupyter
-.ipynb_checkpoints/
+.idea/
 
 # OS
 .DS_Store
